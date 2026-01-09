@@ -1,6 +1,5 @@
 import { useState, type KeyboardEvent } from 'react'
 import { Plus } from '@phosphor-icons/react'
-import { Input } from '@/components/ui'
 import { db } from '@/db'
 
 interface QuickAddTaskProps {
@@ -56,9 +55,10 @@ export function QuickAddTask({ projectId = 1, defaultDueDate }: QuickAddTaskProp
   }
 
   return (
-    <div className="rounded-lg border border-border bg-bg-raised p-3">
-      <Input
+    <div className="rounded-lg border border-border bg-bg-raised p-4">
+      <input
         autoFocus
+        type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         onKeyDown={handleKeyDown}
@@ -68,7 +68,7 @@ export function QuickAddTask({ projectId = 1, defaultDueDate }: QuickAddTaskProp
           }
         }}
         placeholder="What do you need to do?"
-        className="border-transparent bg-transparent pl-1 focus:border-transparent focus:ring-0"
+        className="w-full bg-transparent text-base text-text-primary placeholder:text-text-tertiary focus:outline-none"
       />
       <div className="mt-3 flex items-center justify-between">
         <div className="flex items-center gap-2 text-xs text-text-tertiary">
