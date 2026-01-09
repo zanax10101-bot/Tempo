@@ -1,4 +1,4 @@
-import { Play, Pause, ArrowClockwise, SkipForward } from '@phosphor-icons/react'
+import { Play, Pause, ArrowClockwise, SkipForward, Circle } from '@phosphor-icons/react'
 import { useTimerStore } from '../stores/timerStore'
 import { Button } from '@/components/ui'
 import { cn } from '@/utils'
@@ -43,7 +43,7 @@ export function TimerControls() {
           {isRunning ? (
             <Pause weight="fill" className="h-7 w-7" />
           ) : (
-            <Play weight="fill" className="h-7 w-7 translate-x-0.5" />
+            <Play weight="fill" className="h-7 w-7 translate-x-[3px]" />
           )}
         </button>
 
@@ -73,19 +73,18 @@ export function TimerControls() {
         <span className="text-sm text-text-tertiary">
           Session {currentCycle} of {totalCycles}
         </span>
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-2">
           {Array.from({ length: totalCycles }).map((_, i) => (
-            <span
+            <Circle
               key={i}
+              weight={i < currentCycle ? 'fill' : 'regular'}
               className={cn(
-                'text-lg',
+                'h-4 w-4 transition-colors',
                 i < currentCycle
-                  ? 'opacity-100'
-                  : 'opacity-30'
+                  ? 'text-accent-primary'
+                  : 'text-text-tertiary'
               )}
-            >
-              {i < currentCycle ? '🍅' : '○'}
-            </span>
+            />
           ))}
         </div>
       </div>
