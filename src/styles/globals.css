@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* CSS Variables for theming */
+    --bg-base: #0D0D0F;
+    --bg-raised: #141417;
+    --bg-elevated: #1C1C21;
+    --bg-hover: #252529;
+
+    --accent-primary: #E5A84B;
+    --accent-primary-hover: #F0B85A;
+    --accent-primary-muted: rgba(229, 168, 75, 0.15);
+    --accent-secondary: #4ECDC4;
+    --accent-secondary-muted: rgba(78, 205, 196, 0.15);
+
+    --text-primary: #F5F5F7;
+    --text-secondary: #A1A1A6;
+    --text-tertiary: #6B6B70;
+    --text-inverse: #0D0D0F;
+
+    --border-subtle: rgba(255, 255, 255, 0.06);
+    --border-default: rgba(255, 255, 255, 0.1);
+    --border-strong: rgba(255, 255, 255, 0.15);
+  }
+
+  /* Light mode overrides */
+  [data-theme='light'] {
+    --bg-base: #FAFAFA;
+    --bg-raised: #FFFFFF;
+    --bg-elevated: #FFFFFF;
+    --bg-hover: #F0F0F0;
+
+    --text-primary: #171717;
+    --text-secondary: #525252;
+    --text-tertiary: #A3A3A3;
+
+    --border-subtle: rgba(0, 0, 0, 0.04);
+    --border-default: rgba(0, 0, 0, 0.08);
+    --border-strong: rgba(0, 0, 0, 0.12);
+  }
+
+  /* Base styles */
+  html {
+    font-family: 'Sora', system-ui, -apple-system, sans-serif;
+  }
+
+  body {
+    @apply bg-bg-base text-text-primary;
+    min-height: 100vh;
+  }
+
+  /* Scrollbar styling for dark mode */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border-strong rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-text-tertiary;
+  }
+
+  /* Focus styles */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-accent-primary ring-offset-2 ring-offset-bg-base;
+  }
+}
+
+@layer components {
+  /* Timer display typography */
+  .timer-display {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 4.5rem;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .timer-display-mini {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer utilities {
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
