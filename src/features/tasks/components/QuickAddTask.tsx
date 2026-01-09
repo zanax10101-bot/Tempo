@@ -68,7 +68,7 @@ export function QuickAddTask({ projectId = 1, defaultDueDate }: QuickAddTaskProp
           }
         }}
         placeholder="What do you need to do?"
-        className="w-full bg-transparent text-base text-text-primary placeholder:text-text-tertiary focus:outline-none"
+        className="focus-none w-full bg-transparent text-base text-text-primary placeholder:text-text-tertiary"
       />
       <div className="mt-3 flex items-center justify-between">
         <div className="flex items-center gap-2 text-xs text-text-tertiary">
