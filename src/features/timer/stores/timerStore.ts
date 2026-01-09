@@ -40,9 +40,7 @@ interface TimerState {
   completePhase: () => void
 }
 
-const DEFAULT_FOCUS = 25 * 60
-const DEFAULT_BREAK = 5 * 60
-const DEFAULT_LONG_BREAK = 15 * 60
+const DEFAULT_FOCUS_SECONDS = 25 * 60
 const DEFAULT_CYCLES = 4
 
 export const useTimerStore = create<TimerState>((set, get) => ({
@@ -50,8 +48,8 @@ export const useTimerStore = create<TimerState>((set, get) => ({
   isRunning: false,
   isPaused: false,
   phase: 'focus',
-  remainingSeconds: DEFAULT_FOCUS,
-  totalSeconds: DEFAULT_FOCUS,
+  remainingSeconds: DEFAULT_FOCUS_SECONDS,
+  totalSeconds: DEFAULT_FOCUS_SECONDS,
   currentCycle: 1,
   totalCycles: DEFAULT_CYCLES,
   linkedTaskId: null,

@@ -127,10 +127,12 @@ This is fine for development, QA testing, and early user feedback. Custom domain
 |------|--------|-------|
 | GitHub Actions CI | ✅ Done | DevOps |
 | Security headers | ✅ Done | DevOps |
+| CI integration (scripts) | ✅ Done | Developer |
+| Test setup (Vitest) | ✅ Done | Developer |
 | Domain registration | ⏸️ Deferred | — |
 | Cloudflare Pages | ✅ Done | Human |
 | Sentry project | ⏳ Pending | Human |
-| Branch protection | ⏳ Pending | Human |
+| Branch protection | ⏳ After first PR | Human |
 | Connect custom domain | ⏸️ Deferred | — |
 | Better Uptime | ⏳ After first deploy | DevOps |
 
