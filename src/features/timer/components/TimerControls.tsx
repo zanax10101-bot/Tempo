@@ -43,7 +43,7 @@ export function TimerControls() {
           {isRunning ? (
             <Pause weight="fill" className="h-7 w-7" />
           ) : (
-            <Play weight="fill" className="h-7 w-7" style={{ transform: 'translateX(2%)' }} />
+            <Play weight="fill" className="h-7 w-7" style={{ transform: 'translateX(4%)' }} />
           )}
         </button>
 
