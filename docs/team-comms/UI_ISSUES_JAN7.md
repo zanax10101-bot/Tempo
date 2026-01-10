@@ -2,7 +2,8 @@
 
 **Reported by:** User (Product Testing)  
 **Reviewed by:** PM  
-**Priority:** Should fix before MVP release
+**Status:** ✅ **ALL RESOLVED** (Merged to main)  
+**Resolved:** January 7, 2026
 
 ---
 
@@ -108,13 +109,13 @@
 
 ## Summary Table
 
-| # | Issue | Location | Severity | Owner |
-|---|-------|----------|----------|-------|
-| 1 | Input border/padding | Quick Add Task | Medium | Developer |
-| 2 | Rectangle glow box | Timer page | Medium | Developer |
-| 3 | Play icon off-center | Timer controls | Low | Developer |
-| 4 | Logo/back link overlap | Timer header | Medium | Developer |
-| 5 | Emoji doesn't fit UI | Session indicator | Low | UX + Dev |
+| # | Issue | Location | Severity | Status |
+|---|-------|----------|----------|--------|
+| 1 | Input border/padding | Quick Add Task | Medium | ✅ Fixed |
+| 2 | Rectangle glow box | Timer page | Medium | ✅ Fixed |
+| 3 | Play icon off-center | Timer controls | Low | ✅ Fixed |
+| 4 | Logo/back link overlap | Timer header | Medium | ✅ Fixed |
+| 5 | Emoji doesn't fit UI | Session indicator | Low | ✅ Fixed |
 
 ---
 
