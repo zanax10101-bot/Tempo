@@ -1,4 +1,4 @@
-import { Play, Pause, ArrowClockwise, SkipForward } from '@phosphor-icons/react'
+import { Pause, ArrowClockwise, SkipForward, Circle } from '@phosphor-icons/react'
 import { useTimerStore } from '../stores/timerStore'
 import { Button } from '@/components/ui'
 import { cn } from '@/utils'
@@ -43,7 +43,17 @@ export function TimerControls() {
           {isRunning ? (
             <Pause weight="fill" className="h-7 w-7" />
           ) : (
-            <Play weight="fill" className="h-7 w-7 translate-x-0.5" />
+            // Custom optically-centered play icon SVG
+            // Larger size (h-9 w-9) with slight right margin for optical centering
+            <svg
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="h-9 w-9"
+              style={{ marginLeft: '2px' }}
+            >
+              {/* Rounded play triangle - adapted from Material Design icons */}
+              <path d="M6 5.64v12.72c0 .79.87 1.27 1.54.84l11.32-6.36a1 1 0 0 0 0-1.68L7.54 4.8A1 1 0 0 0 6 5.64z" />
+            </svg>
           )}
         </button>
 
@@ -73,19 +83,18 @@ export function TimerControls() {
         <span className="text-sm text-text-tertiary">
           Session {currentCycle} of {totalCycles}
         </span>
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-2">
           {Array.from({ length: totalCycles }).map((_, i) => (
-            <span
+            <Circle
               key={i}
+              weight={i < currentCycle ? 'fill' : 'regular'}
               className={cn(
-                'text-lg',
+                'h-4 w-4 transition-colors',
                 i < currentCycle
-                  ? 'opacity-100'
-                  : 'opacity-30'
+                  ? 'text-accent-primary'
+                  : 'text-text-tertiary'
               )}
-            >
-              {i < currentCycle ? '🍅' : '○'}
-            </span>
+            />
           ))}
         </div>
       </div>

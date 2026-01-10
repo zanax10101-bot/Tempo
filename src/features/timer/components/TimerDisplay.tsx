@@ -41,12 +41,19 @@ export function TimerDisplay() {
 
   return (
     <div className="relative flex items-center justify-center">
+      {/* Circular glow background */}
+      <div
+        className={cn(
+          'absolute rounded-full transition-shadow duration-300',
+          'h-72 w-72',
+          isRunning && 'animate-timer-pulse',
+          phase === 'focus' ? 'shadow-glow-amber' : 'shadow-glow-teal'
+        )}
+      />
+
       {/* Progress ring */}
       <svg
-        className={cn(
-          'absolute -rotate-90 transition-shadow duration-300',
-          isRunning && phase === 'focus' && 'animate-timer-pulse'
-        )}
+        className="absolute -rotate-90"
         width="320"
         height="320"
         viewBox="0 0 320 320"
@@ -80,13 +87,7 @@ export function TimerDisplay() {
       </svg>
 
       {/* Timer display */}
-      <div
-        className={cn(
-          'relative z-10 flex flex-col items-center justify-center rounded-full',
-          'h-64 w-64',
-          phase === 'focus' ? 'shadow-glow-amber' : 'shadow-glow-teal'
-        )}
-      >
+      <div className="relative z-10 flex h-64 w-64 flex-col items-center justify-center">
         <span className="timer-display text-text-primary">{timeDisplay}</span>
       </div>
     </div>

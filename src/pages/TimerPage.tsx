@@ -10,17 +10,15 @@ export function TimerPage() {
   const { phase, linkedTaskId } = useTimerStore()
 
   return (
-    <div className="flex min-h-[80vh] flex-col items-center justify-center animate-fade-in">
-      {/* Back button */}
-      <div className="absolute left-6 top-6">
-        <Link
-          to="/"
-          className="flex items-center gap-2 text-sm text-text-secondary transition-colors hover:text-text-primary"
-        >
-          <ArrowLeft weight="bold" className="h-4 w-4" />
-          Back to tasks
-        </Link>
-      </div>
+    <div className="relative flex min-h-[80vh] flex-col items-center justify-center animate-fade-in">
+      {/* Back button - positioned relative to this container */}
+      <Link
+        to="/"
+        className="absolute -top-2 left-0 flex items-center gap-2 text-sm text-text-secondary transition-colors hover:text-text-primary"
+      >
+        <ArrowLeft weight="bold" className="h-4 w-4" />
+        Back to tasks
+      </Link>
 
       {/* Phase indicator */}
       <div

@@ -11,7 +11,11 @@ const navItems = [
 ]
 
 export function Sidebar() {
-  const projects = useLiveQuery(() => db.projects.where('isArchived').equals(0).toArray())
+  // Get non-archived projects
+  const projects = useLiveQuery(async () => {
+    const allProjects = await db.projects.toArray()
+    return allProjects.filter((p) => !p.isArchived)
+  })
 
   // Get task counts for nav items
   const taskCounts = useLiveQuery(async () => {
@@ -22,15 +26,17 @@ export function Sidebar() {
     const nextWeek = new Date(today)
     nextWeek.setDate(nextWeek.getDate() + 7)
 
-    const allTasks = await db.tasks.where('completedAt').equals(undefined as unknown as Date).toArray()
+    // Get all incomplete tasks (no completedAt)
+    const allTasks = await db.tasks.toArray()
+    const incompleteTasks = allTasks.filter((t) => !t.completedAt)
 
-    const todayCount = allTasks.filter(
+    const todayCount = incompleteTasks.filter(
       (t) => t.dueDate && t.dueDate < tomorrow
     ).length
-    const upcomingCount = allTasks.filter(
+    const upcomingCount = incompleteTasks.filter(
       (t) => t.dueDate && t.dueDate >= tomorrow && t.dueDate < nextWeek
     ).length
-    const inboxCount = allTasks.filter((t) => t.projectId === 1 && !t.dueDate).length
+    const inboxCount = incompleteTasks.filter((t) => t.projectId === 1 && !t.dueDate).length
 
     return { today: todayCount, upcoming: upcomingCount, inbox: inboxCount }
   })
